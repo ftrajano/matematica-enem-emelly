@@ -12,7 +12,7 @@
   body{ margin:0; background:var(--paper); color:var(--ink);
         font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
         font-size:18px; line-height:1.6; }
-  .wrap{ max-width:42em; margin:0 auto; padding:4rem 1.5rem 6rem; }
+  .wrap{ max-width:42em; margin:0 auto; padding:2.5rem 1.5rem 6rem; }
   .kicker{ font-size:.72rem; letter-spacing:.16em; text-transform:uppercase; color:var(--soft); margin-bottom:.7rem; }
   h1{ font-size:2.1rem; font-weight:400; line-height:1.15; letter-spacing:-.015em; margin:0 0 .5rem; }
   .sub{ color:var(--soft); font-style:italic; margin:0 0 3rem; font-size:1.05rem; }
@@ -46,9 +46,10 @@
   .fb.good{ background:var(--okbg); border-left:3px solid var(--ok); }
   .fb.bad{ background:var(--nobg); border-left:3px solid var(--no); }
 
-  .bar{ position:sticky; top:0; background:var(--paper); border-bottom:1px solid var(--rule);
-        padding:.6rem 0; margin-bottom:-.5rem; font-size:.82rem; color:var(--soft); z-index:5;
-        display:flex; justify-content:space-between; align-items:center; }
+  .bar{ position:sticky; top:0; z-index:10; background:var(--paper);
+        border-bottom:1px solid var(--rule); }
+  .barin{ max-width:42em; margin:0 auto; padding:.65rem 1.5rem; font-size:.82rem; color:var(--soft);
+          display:flex; justify-content:space-between; align-items:center; }
   .track{ flex:1; height:4px; background:var(--rule); border-radius:2px; margin:0 .9rem; overflow:hidden; }
   .track i{ display:block; height:100%; width:0; background:var(--accent); transition:width .25s; }
   .score{ margin:2rem 0 0; padding:1.1rem 1.3rem; background:var(--box); border-radius:5px; font-size:.95rem; }
@@ -62,9 +63,13 @@
   @media print{ body{background:#fff} .wrap{padding:0} .bar{display:none} button.opt{display:none} .fb{display:block} }
 </style>
 </head>
-<body><div class="wrap">
+<body>
 
-<div class="bar"><span>Aula 01</span><span class="track"><i id="pbar"></i></span><span id="pnum">0 / 20</span></div>
+<div class="bar"><div class="barin">
+  <span>Aula 01</span><span class="track"><i id="pbar"></i></span><span id="pnum">0 / 20</span>
+</div></div>
+
+<div class="wrap">
 
 <div class="kicker">Aula 01 · Matemática do ENEM</div>
 <h1>A parábola e seu vértice</h1>
