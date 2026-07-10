@@ -1,0 +1,13 @@
+# Material de terceiros com copyright (SAS Educação) — NÃO publicar
+material-fonte/
+
+# Dados pessoais da aluna — NÃO publicar
+photo_*.jpeg
+photo_*.jpg
+NOTES.md
+learning-records/
+MISSION.md
+
+# Sistema
+.DS_Store
+RESOURCES.md

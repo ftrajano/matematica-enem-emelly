@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aula 01 — A parábola e seu vértice</title>
+<style>
+  :root{ --ink:#1a1a18; --soft:#5c5a54; --rule:#d8d3c7; --paper:#fdfcf8; --accent:#8a2f26;
+         --box:#f4f1e8; --ok:#1f6b3f; --okbg:#eef6f0; --no:#96331f; --nobg:#fbeeea; }
+  *{box-sizing:border-box}
+  body{ margin:0; background:var(--paper); color:var(--ink);
+        font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+        font-size:18px; line-height:1.6; }
+  .wrap{ max-width:42em; margin:0 auto; padding:4rem 1.5rem 6rem; }
+  .kicker{ font-size:.72rem; letter-spacing:.16em; text-transform:uppercase; color:var(--soft); margin-bottom:.7rem; }
+  h1{ font-size:2.1rem; font-weight:400; line-height:1.15; letter-spacing:-.015em; margin:0 0 .5rem; }
+  .sub{ color:var(--soft); font-style:italic; margin:0 0 3rem; font-size:1.05rem; }
+  h2{ font-size:1.05rem; font-weight:600; letter-spacing:.02em; margin:3rem 0 .9rem;
+      border-bottom:1px solid var(--rule); padding-bottom:.35rem; }
+  p{ margin:0 0 1rem; }
+  .eq{ background:var(--box); border-left:3px solid var(--accent); padding:.9rem 1.2rem;
+       margin:1.2rem 0; font-size:1.05rem; }
+  .why{ background:var(--box); border-radius:5px; padding:1.1rem 1.3rem; margin:0 0 1rem; font-size:.97rem; }
+  .why strong{ color:var(--accent); }
+  table{ border-collapse:collapse; width:100%; margin:1.1rem 0; font-size:.93rem; }
+  th,td{ padding:.45rem .6rem; border-bottom:1px solid var(--rule); text-align:center; }
+  th:first-child,td:first-child{ text-align:left; color:var(--soft); font-size:.82rem; }
+  code{ font-family:"SF Mono",Menlo,monospace; font-size:.88em; background:var(--box); padding:.1em .35em; border-radius:3px; }
+
+  .q{ border:1px solid var(--rule); border-radius:6px; padding:1.2rem 1.3rem; margin:1.3rem 0; background:#fff; }
+  .q .num{ font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--soft); margin-bottom:.5rem; }
+  .q .stem{ margin-bottom:.9rem; }
+  .opts{ display:flex; flex-wrap:wrap; gap:.5rem; }
+  button.opt{ font:inherit; font-size:.95rem; padding:.5rem 1.1rem; border:1px solid var(--rule);
+              background:var(--paper); border-radius:4px; cursor:pointer; color:var(--ink); min-width:4.5rem; }
+  button.opt:hover:not(:disabled){ border-color:var(--accent); }
+  button.opt:disabled{ cursor:default; opacity:.55; }
+  button.opt.right{ background:var(--okbg); border-color:var(--ok); color:var(--ok); font-weight:600; opacity:1; }
+  button.opt.wrong{ background:var(--nobg); border-color:var(--no); color:var(--no); opacity:1; }
+  .fb{ display:none; margin-top:.9rem; padding:.75rem .95rem; border-radius:4px; font-size:.93rem; line-height:1.5; }
+  .fb.show{ display:block; }
+  .fb.good{ background:var(--okbg); border-left:3px solid var(--ok); }
+  .fb.bad{ background:var(--nobg); border-left:3px solid var(--no); }
+
+  .score{ margin:2rem 0 0; padding:1rem 1.2rem; background:var(--box); border-radius:5px;
+          font-size:.95rem; text-align:center; }
+  .warn{ background:#fdf6e9; border:1px solid #e6d5ae; border-radius:4px; padding:.9rem 1.15rem; margin:1.3rem 0; font-size:.95rem; }
+  .warn strong{ color:var(--accent); }
+  a{ color:var(--accent); }
+  footer{ margin-top:3.5rem; padding-top:1.2rem; border-top:1px solid var(--rule); color:var(--soft); font-size:.88rem; }
+  footer p{ margin:.5rem 0; }
+  @media print{ body{background:#fff} .wrap{padding:0} button.opt{display:none} .fb{display:block} }
+</style>
+</head>
+<body><div class="wrap">
+
+<div class="kicker">Aula 01 · Matemática do ENEM</div>
+<h1>A parábola e seu vértice</h1>
+<p class="sub">Uma ideia só — que vale duas questões do seu simulado.</p>
+
+<div class="why">
+  <strong>Por que esta aula, Emelly.</strong>
+  Você fez <b>32 de 45</b> no simulado 3º S4S. Isso é bom — você acertou até a questão 140,
+  de probabilidade condicional, que é das mais difíceis da prova.
+  Dos seus 13 erros, quatro foram em <b>funções</b>. E dois deles — a <b>167</b> e a <b>172</b> —
+  não são dois assuntos. São <b>o mesmo assunto</b>: a parábola.
+  Aprender isso hoje conserta os dois de uma vez.
+</div>
+
+<h2>1. O que faz uma parábola</h2>
+<div class="eq"><b>f(x) = ax² + bx + c</b>, com <b>a ≠ 0</b></div>
+<p>É o <code>x²</code> que curva o gráfico. Sem ele, sobra uma reta.</p>
+<p>O sinal de <code>a</code> diz para onde a curva abre:</p>
+<table>
+  <tr><th>Sinal de a</th><th>A parábola</th><th>O vértice é</th></tr>
+  <tr><td>a &gt; 0</td><td>abre para cima</td><td>ponto de <b>mínimo</b></td></tr>
+  <tr><td>a &lt; 0</td><td>abre para baixo</td><td>ponto de <b>máximo</b></td></tr>
+</table>
+
+<h2>2. O vértice</h2>
+<p>O vértice é o ponto onde a curva “vira”. É lá que está o maior (ou o menor) valor da função.</p>
+<div class="eq">
+  <b>x<sub>v</sub> = −b / (2a)</b> &nbsp;→&nbsp; depois, <b>y<sub>v</sub> = f(x<sub>v</sub>)</b>
+</div>
+
+<div class="warn">
+  <strong>A troca que derruba todo mundo.</strong>
+  <b>x<sub>v</sub></b> é <i>quando</i> (ou <i>onde</i>) acontece o máximo.
+  <b>y<sub>v</sub></b> é <i>quanto vale</i> esse máximo.<br>
+  “Em que instante o projétil atinge o ponto mais alto?” → <b>x<sub>v</sub></b>.<br>
+  “Qual é a altura máxima que ele atinge?” → <b>y<sub>v</sub></b>.
+</div>
+
+<h2>3. Sua vez — a questão 172, por partes</h2>
+<p>No simulado: um projétil tem altura <code>h(t) = −5t² + 20t</code> (em cm, com t em segundos).
+A trajetória precisa caber na tela, que deve ser <b>pelo menos 2 cm mais alta</b> que a altura necessária.
+Responda cada passo. O feedback é na hora.</p>
+
+<div class="q" data-a="-5">
+  <div class="num">Passo 1</div>
+  <div class="stem">Em <code>h(t) = −5t² + 20t</code>, quanto vale o coeficiente <b>a</b>?</div>
+  <div class="opts"><button class="opt">−20</button><button class="opt">−5</button><button class="opt">5</button><button class="opt">20</button></div>
+  <div class="fb"></div>
+</div>
+
+<div class="q" data-a="para baixo">
+  <div class="num">Passo 2</div>
+  <div class="stem">Com esse <b>a</b>, a parábola abre para onde? (E por isso ela tem um <i>máximo</i>.)</div>
+  <div class="opts"><button class="opt">para cima</button><button class="opt">para baixo</button></div>
+  <div class="fb"></div>
+</div>
+
+<div class="q" data-a="2">
+  <div class="num">Passo 3</div>
+  <div class="stem">Calcule <b>x<sub>v</sub> = −b/(2a)</b>. Aqui, <code>b = 20</code> e <code>a = −5</code>. Quanto dá?</div>
+  <div class="opts"><button class="opt">1</button><button class="opt">2</button><button class="opt">3</button><button class="opt">4</button></div>
+  <div class="fb"></div>
+</div>
+
+<div class="q" data-a="20">
+  <div class="num">Passo 4</div>
+  <div class="stem">Agora substitua: <b>y<sub>v</sub> = h(2) = −5·(2)² + 20·(2)</b>. Qual a altura máxima, em cm?</div>
+  <div class="opts"><button class="opt">15</button><button class="opt">20</button><button class="opt">25</button><button class="opt">40</button></div>
+  <div class="fb"></div>
+</div>
+
+<div class="q" data-a="22">
+  <div class="num">Passo 5</div>
+  <div class="stem">A tela precisa ter, no mínimo, <b>2 cm a mais</b> que essa altura. Quantos cm ela precisa ter?</div>
+  <div class="opts"><button class="opt">17</button><button class="opt">20</button><button class="opt">22</button><button class="opt">25</button></div>
+  <div class="fb"></div>
+</div>
+
+<p style="color:var(--soft);font-style:italic;font-size:.95rem">
+  No simulado, a possibilidade de 22 cm era a alternativa <b>E</b> — e é a resposta.
+  Você marcou <b>B</b> (6 cm), que é o valor de <code>h(1)</code>: você parou no primeiro instante em vez de ir ao vértice.
+</p>
+
+<h2>4. A questão 167 — reta ou curva?</h2>
+<p>Um aparelho consome potência <b>P</b> conforme a corrente <b>i</b>:</p>
+<table>
+  <tr><th>i (ampère)</th><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+  <tr><th>P (watt)</th><td>4</td><td>16</td><td>36</td><td>64</td></tr>
+</table>
+<p>Para saber se é reta ou parábola, olhe as <b>diferenças</b> entre valores seguidos de P:
+de 4 para 16 sobe <b>12</b>; de 16 para 36 sobe <b>20</b>; de 36 para 64 sobe <b>28</b>.</p>
+
+<div class="q" data-a="uma parábola">
+  <div class="num">Passo 6</div>
+  <div class="stem">As subidas (12, 20, 28) <b>não</b> são constantes — elas próprias crescem de 8 em 8. Então o gráfico é:</div>
+  <div class="opts"><button class="opt">uma reta</button><button class="opt">uma parábola</button></div>
+  <div class="fb"></div>
+</div>
+
+<div class="q" data-a="curva contínua">
+  <div class="num">Passo 7</div>
+  <div class="stem">A corrente pode valer 2,5 A, 3,1 A, qualquer número. Logo o gráfico deve ser desenhado como:</div>
+  <div class="opts"><button class="opt">pontos isolados</button><button class="opt">curva contínua</button></div>
+  <div class="fb"></div>
+</div>
+
+<p style="color:var(--soft);font-style:italic;font-size:.95rem">
+  Junte as duas: parábola <i>e</i> contínua → alternativa <b>C</b>. Você marcou <b>A</b>, que é uma reta —
+  o enunciado até avisava: “o consumo crescia de maneira <b>não linear</b>”.
+  Aqui a lei é <code>P = 4i²</code>.
+</p>
+
+<div class="score" id="score">Responda os 7 passos acima.</div>
+
+<h2>5. Antes da próxima aula</h2>
+<p><b>Assista</b> (fonte primária, gratuita, feita pelo IMPA):
+<a href="https://portaldaobmep.impa.br/index.php/modulo/ver?modulo=61">Portal da Matemática OBMEP — Módulo Função Quadrática</a>,
+em especial a videoaula <i>“Função Quadrática: Definição, Máximos e Mínimos”</i> e o aplicativo <i>“No vértice da parábola”</i>.
+Se quiser mais treino: <a href="https://portaldaobmep.impa.br/index.php/modulo/ver?modulo=61&tipo=2">exercícios resolvidos do mesmo módulo</a>.</p>
+
+<p><b>Guarde</b> a folha de referência: <a href="../reference/funcao-quadratica.html">Função Quadrática — referência</a>.
+É para consultar rápido, não para decorar.</p>
+
+<div class="warn">
+  <strong>Volte aqui em 2 dias.</strong> Refaça os 7 passos <i>sem olhar</i> a folha de referência.
+  Lembrar com esforço é o que fixa de verdade — se parecer fácil demais, você não está aprendendo, está reconhecendo.
+</div>
+
+<footer>
+  <p><b>Ficou alguma dúvida?</b> Pergunte ao seu professor — é só falar comigo aqui no Claude.
+  Não guarde a dúvida para depois: se um passo acima não fez sentido, me diga <i>qual</i> passo e eu explico de outro jeito.</p>
+  <p>Esta aula nasceu do seu simulado 3º S4S. Voltar ao <a href="../index.html">índice das aulas</a>.</p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var qs = Array.prototype.slice.call(document.querySelectorAll('.q'));
+  var explain = {
+    1:["Isso. <b>a</b> é o número que multiplica o <code>t²</code>, <i>com o sinal</i>: −5.",
+       "<b>a</b> é o coeficiente do <code>t²</code>, e o sinal vai junto. Em <code>−5t² + 20t</code>, temos a = <b>−5</b> (o 20 é o <b>b</b>)."],
+    2:["Exato. <b>a</b> é negativo, então a parábola entristece — abre para baixo — e o vértice é o ponto mais alto.",
+       "Se <b>a</b> &lt; 0, a parábola abre <b>para baixo</b>. Truque: a positivo sorri, a negativo entristece. Como abre para baixo, o vértice é um <b>máximo</b> — que é justamente o que a questão pede."],
+    3:["Certo. x<sub>v</sub> = −20 / (2·(−5)) = −20 / (−10) = <b>2</b> segundos.",
+       "Cuidado com os sinais: x<sub>v</sub> = −b/(2a) = −(20) / (2·(−5)) = −20 / −10 = <b>2</b>. Menos dividido por menos dá mais."],
+    4:["Isso. h(2) = −5·4 + 40 = −20 + 40 = <b>20 cm</b>. Essa é a altura máxima.",
+       "Substitua com calma: h(2) = −5·(2)² + 20·(2) = −5·4 + 40 = −20 + 40 = <b>20 cm</b>."],
+    5:["Perfeito. 20 + 2 = <b>22 cm</b>. Esse é o pulo do gato da questão: o vértice dá 20, mas a tela pede 2 a mais.",
+       "A altura máxima é 20 cm. A tela precisa ser <i>pelo menos</i> 2 cm maior: 20 + 2 = <b>22 cm</b>."],
+    6:["Isso. Diferenças que crescem = parábola. Numa reta, elas seriam sempre iguais.",
+       "Numa <b>reta</b>, as subidas são sempre <i>iguais</i> (ex.: +5, +5, +5). Aqui elas mudam (12, 20, 28) e mudam de forma constante (+8, +8) — isso é a assinatura de uma <b>parábola</b>."],
+    7:["Exato. Grandeza que aceita qualquer valor → curva contínua, sem buracos.",
+       "A corrente é uma grandeza <b>contínua</b>: entre 2 A e 3 A existem infinitos valores. Então o gráfico é uma <b>curva contínua</b>. Pontos isolados só quando a grandeza é contável (nº de caixas, de pessoas)."]
+  };
+  var done = 0, right = 0;
+  // Os botões usam o menos tipográfico (−); normaliza para comparar com data-a.
+  function norm(s){ return s.trim().toLowerCase().replace(/−/g, '-'); }
+
+  qs.forEach(function(q, i){
+    var want = norm(q.getAttribute('data-a'));
+    var fb = q.querySelector('.fb');
+    q.querySelectorAll('button.opt').forEach(function(b){
+      b.addEventListener('click', function(){
+        if (q.dataset.answered) return;
+        q.dataset.answered = '1';
+        var ok = norm(b.textContent) === want;
+        done++; if (ok) right++;
+        b.classList.add(ok ? 'right' : 'wrong');
+        if (!ok) {
+          q.querySelectorAll('button.opt').forEach(function(o){
+            if (norm(o.textContent) === want) o.classList.add('right');
+          });
+        }
+        q.querySelectorAll('button.opt').forEach(function(o){ o.disabled = true; });
+        fb.innerHTML = explain[i+1][ok ? 0 : 1];
+        fb.className = 'fb show ' + (ok ? 'good' : 'bad');
+        var s = document.getElementById('score');
+        if (done < qs.length) { s.textContent = done + ' de ' + qs.length + ' respondidos.'; }
+        else if (right === qs.length) { s.innerHTML = '<b>7 de 7.</b> Você acabou de resolver, sozinha, as duas questões que tinha errado. Volte em 2 dias e refaça sem olhar.'; }
+        else { s.innerHTML = '<b>' + right + ' de ' + qs.length + '.</b> Leia os comentários dos que escaparam e refaça esta aula amanhã — errar aqui é de graça, na prova não é.'; }
+      });
+    });
+  });
+})();
+</script>
+</body></html>

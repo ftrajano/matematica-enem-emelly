@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Referência — Função Quadrática</title>
+<style>
+  :root{ --ink:#1a1a18; --soft:#5c5a54; --rule:#d8d3c7; --paper:#fdfcf8; --accent:#8a2f26; --box:#f4f1e8; }
+  *{box-sizing:border-box}
+  body{ margin:0; background:var(--paper); color:var(--ink);
+        font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+        font-size:18px; line-height:1.55; }
+  .wrap{ max-width:44em; margin:0 auto; padding:4rem 1.5rem 6rem; }
+  h1{ font-size:2rem; font-weight:400; letter-spacing:-.01em; margin:0 0 .2rem; }
+  .sub{ color:var(--soft); font-style:italic; margin:0 0 2.5rem; }
+  h2{ font-size:1.15rem; font-weight:600; margin:2.5rem 0 .8rem;
+      border-bottom:1px solid var(--rule); padding-bottom:.3rem; }
+  .eq{ background:var(--box); border-left:3px solid var(--accent); padding:.85rem 1.1rem;
+       margin:1rem 0; font-family:"Latin Modern Math",Cambria,Georgia,serif; font-size:1.05rem; }
+  .eq b{ font-weight:600; }
+  table{ border-collapse:collapse; width:100%; margin:1rem 0; font-size:.95rem; }
+  th,td{ text-align:left; padding:.5rem .6rem; border-bottom:1px solid var(--rule); vertical-align:top; }
+  th{ font-size:.78rem; text-transform:uppercase; letter-spacing:.06em; color:var(--soft); font-weight:600; }
+  code{ font-family:"SF Mono",Menlo,monospace; font-size:.88em; background:var(--box); padding:.1em .35em; border-radius:3px; }
+  .warn{ background:#fdf6e9; border:1px solid #e6d5ae; border-radius:4px; padding:.9rem 1.1rem; margin:1.2rem 0; font-size:.95rem; }
+  .warn strong{ color:var(--accent); }
+  figure{ margin:1.5rem 0; text-align:center; }
+  figcaption{ color:var(--soft); font-size:.85rem; font-style:italic; margin-top:.4rem; }
+  a{ color:var(--accent); }
+  footer{ margin-top:3.5rem; padding-top:1rem; border-top:1px solid var(--rule); color:var(--soft); font-size:.87rem; }
+  @media print{ body{background:#fff} .wrap{padding:0} }
+</style>
+</head>
+<body><div class="wrap">
+
+<h1>Função Quadrática</h1>
+<p class="sub">Folha de referência · Matemática do ENEM · Emelly</p>
+
+<h2>A forma</h2>
+<div class="eq"><b>f(x) = ax² + bx + c</b> &nbsp;&nbsp; com <b>a ≠ 0</b></div>
+<p>Se <code>a = 0</code>, o termo <code>x²</code> some e a função vira uma reta. É o <code>x²</code> que faz a parábola.</p>
+
+<h2>Para onde a parábola abre</h2>
+<table>
+  <tr><th>Sinal de a</th><th>Concavidade</th><th>O vértice é</th></tr>
+  <tr><td><code>a &gt; 0</code></td><td>para cima 🙂</td><td>o ponto de <b>mínimo</b></td></tr>
+  <tr><td><code>a &lt; 0</code></td><td>para baixo 🙁</td><td>o ponto de <b>máximo</b></td></tr>
+</table>
+<p>Truque: o sinal de <code>a</code> é a “boca” da parábola. Positivo sorri, negativo entristece.</p>
+
+<h2>O vértice — a fórmula que mais cai</h2>
+<div class="eq">
+  <b>x<sub>v</sub> = −b / (2a)</b><br>
+  <b>y<sub>v</sub> = f(x<sub>v</sub>)</b> &nbsp;<span style="color:var(--soft)">(basta substituir)</span>
+</div>
+<p>Existe também <code>y_v = −Δ/(4a)</code>, mas substituir <code>x_v</code> na função é mais seguro e dá menos chance de errar sinal.</p>
+
+<div class="warn">
+  <strong>Ordem importa.</strong> Ache <b>x<sub>v</sub></b> primeiro; só depois calcule <b>y<sub>v</sub></b>.
+  Se a pergunta é <i>“em que instante atinge o ponto mais alto?”</i> → resposta é <b>x<sub>v</sub></b>.
+  Se é <i>“qual é a altura máxima?”</i> → resposta é <b>y<sub>v</sub></b>. Trocar os dois é o erro mais comum.
+</div>
+
+<h2>Raízes (onde a parábola corta o eixo x)</h2>
+<div class="eq">
+  <b>Δ = b² − 4ac</b> &nbsp;&nbsp;&nbsp; <b>x = (−b ± √Δ) / (2a)</b>
+</div>
+<table>
+  <tr><th>Δ</th><th>Raízes reais</th></tr>
+  <tr><td><code>Δ &gt; 0</code></td><td>duas, distintas</td></tr>
+  <tr><td><code>Δ = 0</code></td><td>uma (vértice toca o eixo x)</td></tr>
+  <tr><td><code>Δ &lt; 0</code></td><td>nenhuma</td></tr>
+</table>
+
+<h2>Como reconhecer que é quadrática (e não reta)</h2>
+<p>Diante de uma tabela de valores, olhe as <b>diferenças</b> entre termos consecutivos:</p>
+<table>
+  <tr><th>x</th><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+  <tr><th>y</th><td>4</td><td>16</td><td>36</td><td>64</td></tr>
+  <tr><th>1ª diferença</th><td>—</td><td>12</td><td>20</td><td>28</td></tr>
+  <tr><th>2ª diferença</th><td>—</td><td>—</td><td>8</td><td>8</td></tr>
+</table>
+<p><b>1ª diferença constante</b> → função afim (reta). <b>2ª diferença constante</b> → função quadrática (parábola).
+Aqui a 2ª diferença é constante (8), logo é quadrática: <code>y = 4x²</code>.</p>
+
+<div class="warn">
+  <strong>Contínuo ou pontilhado?</strong> Se a grandeza do eixo x pode assumir <i>qualquer</i> valor
+  (corrente elétrica, tempo, distância), o gráfico é uma <b>curva contínua</b>.
+  Só desenhe pontos soltos se a grandeza for contável (número de pessoas, de caixas).
+</div>
+
+<h2>Onde isso apareceu no simulado</h2>
+<table>
+  <tr><th>Questão</th><th>O que pedia</th><th>Ferramenta</th></tr>
+  <tr><td>167</td><td>Qual gráfico representa P = 4i²</td><td>2ª diferença + curva contínua</td></tr>
+  <tr><td>172</td><td>Altura máxima de h(t) = −5t² + 20t</td><td>x<sub>v</sub>, depois y<sub>v</sub></td></tr>
+</table>
+
+<footer>
+  Fonte primária: <a href="https://portaldaobmep.impa.br/index.php/modulo/ver?modulo=61">Portal da Matemática OBMEP — Módulo Função Quadrática</a> (IMPA).<br>
+  Ver a aula: <a href="../lessons/0001-parabola-e-vertice.html">Aula 01 — A parábola e seu vértice</a>.
+</footer>
+
+</div></body></html>
